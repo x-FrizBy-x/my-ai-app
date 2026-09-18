@@ -1,69 +1,109 @@
-import Image from "next/image";
+const navItems = ["About", "Contact Us", "Billing", "Partners"];
+
+function PlanetMark() {
+	return (
+		<span className="planet-mark" aria-hidden="true">
+			<span className="planet-ring" />
+			<span className="planet-body" />
+			<span className="planet-highlight" />
+		</span>
+	);
+}
+
+function Brand() {
+	return (
+		<a className="brand" href="#top" aria-label="Jelaksy home">
+			<PlanetMark />
+			<span>Jelaksy</span>
+		</a>
+	);
+}
+
+function ArrowIcon() {
+	return (
+		<svg viewBox="0 0 16 16" aria-hidden="true">
+			<path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" />
+		</svg>
+	);
+}
+
+function WorkspacePreview() {
+	return (
+		<div className="preview-shell" aria-label="Abstract preview of the Jelaksy workspace">
+			<div className="preview-topbar">
+				<div className="preview-dots"><span /><span /><span /></div>
+				<div className="preview-address">jelaksy / your next idea</div>
+				<div className="preview-status"><i /> private space</div>
+			</div>
+			<div className="preview-body">
+				<aside className="preview-sidebar">
+					<div className="mini-brand"><PlanetMark /><span>Jelaksy</span></div>
+					<div className="sidebar-line active" />
+					<div className="sidebar-line" />
+					<div className="sidebar-line short" />
+					<div className="sidebar-spacer" />
+					<div className="sidebar-line short" />
+				</aside>
+				<div className="preview-content">
+					<span className="preview-kicker">A new direction</span>
+					<h3>Build something<br /><em>that matters.</em></h3>
+					<p>Your ideas, gathered into a clear path forward.</p>
+					<div className="preview-plan">
+						<div className="plan-heading"><span>01</span><strong>Shape the idea</strong><b>+</b></div>
+						<div className="plan-bar wide" /><div className="plan-bar" />
+					</div>
+					<div className="preview-plan faded">
+						<div className="plan-heading"><span>02</span><strong>Make a plan</strong><b>+</b></div>
+						<div className="plan-bar" />
+					</div>
+				</div>
+				<div className="preview-orbit"><span /><span /><span /></div>
+			</div>
+		</div>
+	);
+}
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+	return (
+		<main id="top" className="site-shell">
+			<div className="space-field" aria-hidden="true"><span className="star-layer one" /><span className="star-layer two" /><span className="nebula nebula-one" /><span className="nebula nebula-two" /></div>
+			<header className="site-header">
+				<Brand />
+				<nav className="main-nav" aria-label="Main navigation">
+					{navItems.map((item) => <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>{item}</a>)}
+				</nav>
+				<div className="header-actions"><a className="login-link" href="#footer">Log in</a><a className="button button-small" href="/app">Get Started <ArrowIcon /></a></div>
+			</header>
+
+			<section className="hero">
+				<div className="hero-orbit orbit-large" aria-hidden="true" /><div className="hero-orbit orbit-small" aria-hidden="true" />
+				<div className="hero-copy">
+					<span className="eyebrow"><i /> The space to build what&apos;s next</span>
+					<h1>Explore the future<br /><span>with Jelaksy</span></h1>
+					<p>Jelaksy helps you turn an idea into a structured plan and guides you through building it step by step.</p>
+					<a className="button button-primary" href="/app">Get Started <ArrowIcon /></a>
+				</div>
+			</section>
+
+			<section className="intro section-band" id="about">
+				<div className="section-label"><span>01</span><i /></div>
+				<div className="intro-copy"><span className="eyebrow muted">A clearer way forward</span><h2>Turn your ideas<br /><em>into reality.</em></h2></div>
+				<div className="intro-detail"><p>Jelaksy helps you turn an idea into a structured plan and guides you through building it step by step.</p><a className="text-link" href="/app">Start exploring <ArrowIcon /></a></div>
+			</section>
+
+			<section className="preview-section" aria-labelledby="preview-title">
+				<div className="preview-heading"><span className="eyebrow muted">A glimpse of what&apos;s ahead</span><h2 id="preview-title">Give your next idea<br /><em>somewhere to go.</em></h2></div>
+				<WorkspacePreview />
+				<div className="preview-caption"><span>Future workspace / 001</span><span>Designed for forward motion <i /></span></div>
+			</section>
+
+			<section className="final-cta" id="contact-us">
+				<div className="cta-stars" aria-hidden="true" /><div className="cta-copy"><span className="eyebrow"><i /> Your next chapter starts here</span><h2>Ready to<br /><em>explore?</em></h2><a className="button button-primary" href="/app">Get Started <ArrowIcon /></a></div>
+			</section>
+
+			<footer className="site-footer" id="footer">
+				<Brand /><div className="footer-links">{navItems.map((item) => <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>{item}</a>)}<a href="#footer">Privacy</a></div><span className="copyright">© 2026 Jelaksy</span>
+			</footer>
+		</main>
+	);
 }
