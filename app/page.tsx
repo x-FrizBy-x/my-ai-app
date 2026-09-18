@@ -1,4 +1,9 @@
-const navItems = ["About", "Contact Us", "Billing", "Partners"];
+const navItems = [
+	["About", "/about"],
+	["Contact Us", "/contact"],
+	["Billing", "/billing"],
+	["Partners", "/partners"],
+] as const;
 
 function PlanetMark() {
 	return (
@@ -70,7 +75,7 @@ export default function Home() {
 			<header className="site-header">
 				<Brand />
 				<nav className="main-nav" aria-label="Main navigation">
-					{navItems.map((item) => <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>{item}</a>)}
+					{navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
 				</nav>
 				<div className="header-actions"><a className="login-link" href="#footer">Log in</a><a className="button button-small" href="/app">Get Started <ArrowIcon /></a></div>
 			</header>
@@ -94,7 +99,6 @@ export default function Home() {
 			<section className="preview-section" aria-labelledby="preview-title">
 				<div className="preview-heading"><span className="eyebrow muted">A glimpse of what&apos;s ahead</span><h2 id="preview-title">Give your next idea<br /><em>somewhere to go.</em></h2></div>
 				<WorkspacePreview />
-				<div className="preview-caption"><span>Future workspace / 001</span><span>Designed for forward motion <i /></span></div>
 			</section>
 
 			<section className="final-cta" id="contact-us">
@@ -102,7 +106,7 @@ export default function Home() {
 			</section>
 
 			<footer className="site-footer" id="footer">
-				<Brand /><div className="footer-links">{navItems.map((item) => <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>{item}</a>)}<a href="#footer">Privacy</a></div><span className="copyright">© 2026 Jelaksy</span>
+				<Brand /><div className="footer-links">{navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}<a href="#footer">Privacy</a></div><span className="copyright">© 2026 Jelaksy</span>
 			</footer>
 		</main>
 	);
