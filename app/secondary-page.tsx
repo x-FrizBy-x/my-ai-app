@@ -1,22 +1,12 @@
 import Link from "next/link";
-import PlanetMark from "@/components/PlanetMark";
-import ArrowIcon from "@/components/ArrowIcon";
-
-const secondaryNav = [
-  ["About", "/about"],
-  ["Contact", "/contact"],
-  ["Billing", "/billing"],
-  ["Partners", "/partners"],
-  ["Pricing", "/pricing"],
-] as const;
-
-
+import {navItems} from "@/components/constants";
+import PlanetMark, {ArrowIcon} from "@/components/objects";
 
 export default function SecondaryPage({ 
   title, 
   eyebrow, 
-  description}: 
-  { 
+  description
+}:{ 
   title: string; 
   eyebrow: string; 
   description: string})
@@ -25,8 +15,8 @@ export default function SecondaryPage({
     <div className="placeholder-glow" aria-hidden="true" />
     <header className="secondary-header">
       <Link className="brand" href="/"><PlanetMark /><span>Jelaksy</span></Link>
-      <nav className="main-nav secondary-nav" aria-label="Secondary navigation">
-        {secondaryNav.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+      <nav className="main-nav " aria-label="Navigation">
+        {navItems.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
       </nav>
       <div className="header-actions secondary-actions">
         <Link className="login-link" href="/authorization">Log in</Link>

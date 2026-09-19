@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import PlanetMark from "@/components/PlanetMark";
+import PlanetMark from "@/components/objects";
 
 const providers = [
 	["GitHub", "/icons/github.svg"],
@@ -25,6 +25,7 @@ export default async function AuthorizationPage({ searchParams }: AuthorizationP
 				<PlanetMark />
 				<span>Jelaksy</span>
 			</Link>
+			<Link className="authorization-home" href="/">Home</Link>
 
 			<section className="authorization-panel" aria-labelledby="authorization-title">
 				<span className="eyebrow"><i /> {isRegistering ? "Start your journey" : "Continue your journey"}</span>

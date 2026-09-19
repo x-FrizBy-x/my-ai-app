@@ -1,13 +1,7 @@
-import PlanetMark from "@/components/PlanetMark";
-import ArrowIcon from "@/components/ArrowIcon";
 import Link from "next/link";
+import {navItems} from "@/components/constants";
+import PlanetMark, {ArrowIcon} from "@/components/objects";
 
-const navItems = [
-	["About", "/about"],
-	["Contact Us", "/contact"],
-	["Billing", "/billing"],
-	["Partners", "/partners"],
-] as const;
 
 function Brand() {
 	return (
