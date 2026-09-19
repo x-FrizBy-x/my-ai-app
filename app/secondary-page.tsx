@@ -29,8 +29,8 @@ export default function SecondaryPage({
         {secondaryNav.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
       </nav>
       <div className="header-actions secondary-actions">
-        <Link className="login-link" href="/app">Log in</Link>
-        <Link className="button button-small" href="/app">Get Started <ArrowIcon /></Link>
+        <Link className="login-link" href="/authorization">Log in</Link>
+        <Link className="button button-small" href="/authorization">Get Started <ArrowIcon /></Link>
       </div>
     </header>
     <span className="eyebrow"><i /> {eyebrow}</span>
