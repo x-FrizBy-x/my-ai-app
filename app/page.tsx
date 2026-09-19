@@ -1,19 +1,13 @@
+import PlanetMark from "@/components/PlanetMark";
+import ArrowIcon from "@/components/ArrowIcon";
+import Link from "next/link";
+
 const navItems = [
 	["About", "/about"],
 	["Contact Us", "/contact"],
 	["Billing", "/billing"],
 	["Partners", "/partners"],
 ] as const;
-
-function PlanetMark() {
-	return (
-		<span className="planet-mark" aria-hidden="true">
-			<span className="planet-ring" />
-			<span className="planet-body" />
-			<span className="planet-highlight" />
-		</span>
-	);
-}
 
 function Brand() {
 	return (
@@ -24,13 +18,6 @@ function Brand() {
 	);
 }
 
-function ArrowIcon() {
-	return (
-		<svg viewBox="0 0 16 16" aria-hidden="true">
-			<path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" />
-		</svg>
-	);
-}
 
 function WorkspacePreview() {
 	return (
@@ -102,7 +89,13 @@ export default function Home() {
 			</section>
 
 			<section className="final-cta" id="contact-us">
-				<div className="cta-stars" aria-hidden="true" /><div className="cta-copy"><span className="eyebrow"><i /> Your next chapter starts here</span><h2>Ready to<br /><em>explore?</em></h2><a className="button button-primary" href="/app">Get Started <ArrowIcon /></a></div>
+				<div className="cta-stars" aria-hidden="true" />
+				<div className="cta-copy">
+					<span className="eyebrow">
+						<i /> Your next chapter starts here
+						</span><h2>Ready to<br /><em>explore?</em></h2>
+						<Link className="button button-primary" href="/app">Get Started <ArrowIcon /></Link>
+						</div>
 			</section>
 
 			<footer className="site-footer" id="footer">
